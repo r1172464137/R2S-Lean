@@ -138,7 +138,7 @@ jobs:
           echo "##[set-output name=release_tag;]$release_tag"
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: ${{ steps.assemble_artifact.outputs.release_name }}
           path: ./artifact
