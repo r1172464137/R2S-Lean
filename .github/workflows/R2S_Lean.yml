@@ -36,20 +36,11 @@ jobs:
           sudo rm -rf "/usr/local/share/boost"
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
 
-      - name: Clone fanck0605 Repo
-        run: |
-          git clone -b openwrt-lean https://github.com/fanck0605/openwrt-nanopi-r2s.git
-          cd openwrt-nanopi-r2s
-          rm -rf ./patches/*default-ipaddr*.patch
-          rm -rf ./patches/*samba36*.patch
-          rm -rf ./patches/*author*.patch
-          rm -rf ./patches/*wan*lan*.patch
-          git show -s --format=%aD
 
       - name: Clone Lean Repo
         run: |
           cd openwrt-nanopi-r2s
-          git clone -b master https://github.com/coolsnowwolf/lede.git
+          git clone -b openwrt-18.06-k5.4 https://github.com/project-openwrt/openwrt
           cd lede && git am -3 ../patches/*.patch
 
       - name: Install Extra Packages
